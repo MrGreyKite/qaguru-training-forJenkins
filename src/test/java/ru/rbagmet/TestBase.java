@@ -3,11 +3,18 @@ package ru.rbagmet;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import ru.rbagmet.configs.ConfigCredentials;
+
+import static java.lang.String.format;
+
 public class TestBase {
+
+    public static ConfigCredentials credentials = ConfigFactory.create(ConfigCredentials.class);
 
     @BeforeAll
     static void setup() {
@@ -17,11 +24,22 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
+/*
+    Заготовка под возможность передавать из Дженкинса параметры браузера и версии
+        capabilities.setCapability("browserName", System.getProperty("browserName"));
+        capabilities.setCapability("browserVersion", System.getProperty("browserVersion"));
+*/
+
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
         Configuration.baseUrl = "https://demoqa.com";
 
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        String login = credentials.login();
+        String password = credentials.password();
+//        String remoteUrl = credentials.remoteUrl();
+        String URL = System.getProperty("URL");
+
+        Configuration.remote = format("https://%s:%s@%s", login, password, URL);
     }
 	
 	@AfterEach
