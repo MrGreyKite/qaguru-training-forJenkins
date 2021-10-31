@@ -1,11 +1,14 @@
 package ru.rbagmet.pages.components;
 
+import io.qameta.allure.Step;
+
 import java.util.Date;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class Calendar {
 
+    @Step("Установить дату {dateOfBirth}")
     public void setDate(Date dateOfBirth) {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(dateOfBirth.getMonth());
