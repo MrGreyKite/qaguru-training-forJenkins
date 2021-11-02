@@ -1,5 +1,7 @@
 package ru.rbagmet.tests;
 
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.rbagmet.TestBase;
 import ru.rbagmet.TestData;
@@ -11,6 +13,8 @@ import static ru.rbagmet.Attachments.addScreenshotAs;
 public class AutomationPracticeFormTest extends TestBase {
 
     @Test
+    @DisplayName("Тест на заполнение формы целиком")
+    @Owner("Rudolf Bagmet")
     void formFilled() {
 
         TestData data = new TestData();
@@ -30,6 +34,7 @@ public class AutomationPracticeFormTest extends TestBase {
                 .insertPhoneNumber(data.getUserNumber())
                 .chooseSubject(data.getSubject1())
                 .chooseHobby(data.getHobby1())
+                .chooseHobby(data.getHobby2())
                 .insertAddress(data.getCurrentAddress())
                 .chooseState(data.getState())
                 .chooseCity(data.getCity());
