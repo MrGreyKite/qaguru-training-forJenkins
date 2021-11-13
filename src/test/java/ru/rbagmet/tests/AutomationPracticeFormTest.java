@@ -2,6 +2,7 @@ package ru.rbagmet.tests;
 
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.rbagmet.TestBase;
 import ru.rbagmet.TestData;
@@ -10,6 +11,7 @@ import ru.rbagmet.pages.components.Modal;
 
 import static ru.rbagmet.Attachments.addScreenshotAs;
 
+@Tag("demoqa")
 public class AutomationPracticeFormTest extends TestBase {
 
     @Test

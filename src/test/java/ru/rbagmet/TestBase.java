@@ -23,12 +23,9 @@ public class TestBase {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-
-/*
-    Заготовка под возможность передавать из Дженкинса параметры браузера и версии
         capabilities.setCapability("browserName", System.getProperty("browserName"));
         capabilities.setCapability("browserVersion", System.getProperty("browserVersion"));
-*/
+
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
@@ -36,10 +33,10 @@ public class TestBase {
 
         String login = credentials.login();
         String password = credentials.password();
-//        String remoteUrl = credentials.remoteUrl();
+        String remoteURL = credentials.remoteUrl();
         String URL = System.getProperty("URL");
 
-        Configuration.remote = format("https://%s:%s@%s", login, password, URL);
+        Configuration.remote = format("https://%s:%s@%s", login, password, remoteURL);
     }
 	
 	@AfterEach
