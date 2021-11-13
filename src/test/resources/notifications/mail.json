@@ -1,0 +1,44 @@
+{
+  "app": {
+    "bot": {
+      "token": "",
+      "chat": "",
+      "replyTo": ""
+    },
+    "base": {
+      "lang": "en",
+      "messenger": "email",
+      "allureFolder": "allure-report/",
+      "allureLinkPath": "allure",
+      "chart": true,
+      "chartName": "",
+      "project": ""
+    },
+    "mail": {
+      "host": "smtp.yandex.ru",
+      "port": "456",
+      "username": "ssfortests",
+      "password": "tests280",
+      "enableSSL": true,
+      "from": "ssfortests@yandex.ru",
+      "recipient": "tipikov.tip@yandex.ru"
+    },
+    "mattermost": {
+      "url": ""
+    },
+    "proxy": {
+      "host": "",
+      "port": 0,
+      "username": "",
+      "password": ""
+    },
+    "skype": {
+      "appId": "",
+      "appSecret": "",
+      "serviceUrl": "",
+      "conversationId": "",
+      "botId": "",
+      "botName": ""
+    }
+  }
+}

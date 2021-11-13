@@ -33,10 +33,10 @@ public class TestBase {
 
         String login = credentials.login();
         String password = credentials.password();
-        String remoteURL = credentials.remoteUrl();
+//        String remoteURL = credentials.remoteUrl();
         String URL = System.getProperty("URL");
 
-        Configuration.remote = format("https://%s:%s@%s", login, password, remoteURL);
+        Configuration.remote = format("https://%s:%s@%s", login, password, URL);
     }
 	
 	@AfterEach
