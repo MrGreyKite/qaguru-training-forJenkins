@@ -23,19 +23,17 @@ public class TestBase {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-/*        capabilities.setCapability("browserName", System.getProperty("browserName"));
-        capabilities.setCapability("browserVersion", System.getProperty("browserVersion"));
-*/
+
 
         Configuration.browserCapabilities = capabilities;
-		Configuration.browser = System.getProperty("browserName");
+		Configuration.browser = System.getProperty("browserName", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browserSize = "1366x768";
+        Configuration.browserSize = System.getProperty("browserSize");
         Configuration.baseUrl = "https://demoqa.com";
 
         String login = credentials.login();
         String password = credentials.password();
-//        String remoteURL = credentials.remoteUrl();
+        String remoteURL = credentials.remoteUrl();
         String URL = System.getProperty("URL");
 
         Configuration.remote = format("https://%s:%s@%s", login, password, URL);
