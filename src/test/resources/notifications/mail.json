@@ -16,10 +16,10 @@
     },
     "mail": {
       "host": "smtp.yandex.ru",
-      "port": "456",
+      "port": "587",
       "username": "ssfortests",
       "password": "tests280",
-      "enableSSL": true,
+      "enableSSL": false,
       "from": "ssfortests@yandex.ru",
       "recipient": "tipikov.tip@yandex.ru"
     },
