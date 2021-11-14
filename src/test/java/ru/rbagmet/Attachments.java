@@ -31,9 +31,12 @@ public class Attachments {
     }
 
     public static void browserConsoleLogs() {
+     if (System.getProperty("browserName").equals("firefox")) {
+         attachAsText("No logs", "No logs available");
+        } else
         attachAsText(
                 "Browser console logs",
-                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
+                String.join(" ", Selenide.getWebDriverLogs(BROWSER))
         );
     }
 
